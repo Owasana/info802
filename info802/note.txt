@@ -1,0 +1,17 @@
+serveur soap :
+az webapp up --sku B1 --name info802-ep-soap-server
+
+client wep app :
+az webapp up --sku B1 --name info802-ep-webapp
+
+serveur ql :
+az webapp up --sku B1 --name info802-ep-ql
+
+lien : https://info802-ep-ql.azurewebsites.net/graphql
+
+
+todo :
+ - corriger le bug du serveur ql  / done
+ - modifier les lignes python en ligne sql comme le document test.py du dossier firestore
+ - passer le clientql sur le client wep app
+ - https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3-fr
