@@ -20,7 +20,7 @@ class DevisForm(FlaskForm):
 class UserForm(FlaskForm):
     first_name = StringField('Prénom', default='Toto', validators=[DataRequired()])
     last_name = StringField('Nom', default='ChèqueEnBois',  validators=[DataRequired()])
-    birthday = DateField('Date d \'anniversaire', default=datetime.date(1985, 12, 1), validators=[DataRequired()], format='%Y/%m/%d')
+    birthday = DateField('Date de naissance', default=datetime.date(1985, 12, 1), validators=[DataRequired()], format='%Y/%m/%d')
     nationality = StringField('Nationnalitée', default='FR',  validators=[DataRequired()])
     country_of_residence = StringField('Pays', default='FR',  validators=[DataRequired()])
     email = StringField('Email', default='toto@chequeenbois.fr',  validators=[DataRequired()])
