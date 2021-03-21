@@ -3,11 +3,6 @@ from wtforms import StringField, BooleanField, DecimalField, SubmitField, Passwo
 from wtforms.validators import DataRequired
 import datetime
 
-class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember Me')
-    submit = SubmitField('Sign In')
 
 class DevisForm(FlaskForm):
     distance = DecimalField('Entrer la distance en km', validators=[DataRequired()])

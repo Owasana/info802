@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect
-from forms import LoginForm, DevisForm, UserForm
+from forms import DevisForm, UserForm
 from model.products import Products, Product
 from model.users import User
 from app import app
@@ -50,14 +50,3 @@ def payment(productid, livraison):
         return render_template('payment.html', produit = produit, form = form, livraison = livraison, cout = cout, res = res)
 
     return render_template('payment.html', produit = produit, livraison = livraison, cout = cout, form = form)
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        flash('Login requested for OpenID="%s", remember_me=%s' %
-              (form.openid.data, str(form.remember_me.data)))
-        return redirect('/index')
-    return render_template('login.html',
-                           title='Sign In',
-                           form=form)

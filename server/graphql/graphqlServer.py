@@ -11,9 +11,15 @@ cred = credentials.Certificate("config/info802-ep-firestore-firebase-adminsdk-wp
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
+
+##SELECTION DE LA COLLECTION
 baseProduct = db.collection("MarketPlace")
 
 
+## FIREBASE -> GRAPHQL
+
+
+## TTRADUIT, PRODUIT FIREBASE en PRODUIT GRAPHQL
 class Product(graphene.ObjectType):
     """ défini un produit graphql """
     id = graphene.ID()
@@ -34,14 +40,18 @@ class Products(graphene.ObjectType):
         self.products = []
         #on récupère la collection des Produits
 
-        #on récupère tout les documents de la collection
+        #ON RECUP TOUS LES PRODUITS DE LA BASE
         allProducts = baseProduct.stream()
+
+
         for product in allProducts:
             self.products.append(Product(product))
 
     def getProducts(self):
         return self.products
 
+
+## DEFINITION DES QUERYS ::
 
 class Query(graphene.ObjectType):
 
