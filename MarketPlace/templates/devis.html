@@ -1,15 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+<h1 class="display-4">Produit sélectionné : <br> {{ produit.name }} </h1>
+<br>
+<p class="lead"> prix de {{produit.cost}} € </p>
+<p class="lead"> poid de {{produit.weight}} kg </p>
+<br>
+<p class="lead"> Calculer le prix de votre livraison : </p>
+<p class="lead"> {{ wtf.quick_form(form) }} </p>
 
-    <div> {{ produit.name }}</div>
-    <div> prix: {{produit.cost}} </div>
-    <div> poid : {{produit.weight}} </div>
+{% if prix %}
+<br>
+<p class="lead"> Le coût de livraison s'élève à {{prix}} €
+<br>
+<a href={{url_for('payment', productid = produit.id, livraison = prix)}}> acheter ? </a>
+</p>
+{% endif %}
+</div>
 
-    {{ wtf.quick_form(form) }}
 
-    {% if prix %}
-    <div> voici le prix de livraison  : {{prix}} </div>
-    <a href={{url_for('payment', productid = produit.id, livraison = prix)}}> acheter </a>
-    {% endif %}
 {% endblock %}

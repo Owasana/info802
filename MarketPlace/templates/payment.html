@@ -2,13 +2,20 @@
 {% block content %}
 
 
-    <div> {{ produit.name }}</div>
-    <div> prix: {{produit.cost}} </div>
-    <div> poid : {{produit.weight}} </div>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+<h1 class="display-4">Produit sélectionné : <br> {{ produit.name }} </h1>
+<br>
+<p class="lead"> prix de {{produit.cost}}€ </p>
+<p class="lead"> coût de livraison de {{livraison}}€ </p>
+</div>
 
+ {% if not res %}
+  <div class="container">
     {{ wtf.quick_form(form) }}
+  </div>
+ {% endif %}
 
     {% if res %}
-    <div> {{ res }} T'AS PAYER CHER </div>
+    <div class="container"> Votre paiement de {{res}}€ à bien été pris en compte </div>
     {% endif %}
 {% endblock %}

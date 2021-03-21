@@ -14,6 +14,7 @@ from mangopay.utils import Address
 
 
 ##Vendeur Défini :
+
 #vendor_user = NaturalUser(first_name = 'Lily',
 #                          last_name = 'Lala',
 #                          birthday = 1300186358,
@@ -78,4 +79,4 @@ class User:
                                     secure_mode_return_url="https://www.ulule.com/")
         direct_pay_in.save()
 
-        return "Payement fait , coût total : " + str(pricetot)
+        return str(pricetot)
