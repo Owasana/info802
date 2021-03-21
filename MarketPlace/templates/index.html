@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div> Produits </div>
+    {% for item in produits %}
+      <div>{{ item.name }} <b>{{ item.cost }}</b> {{item.weight }}</div>
+      <a href={{url_for('devis', productid=item.id)}}> faire un devis </a>
+    {% endfor %}
+
+{% endblock %}

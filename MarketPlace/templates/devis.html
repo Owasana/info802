@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <div> {{ produit.name }}</div>
+    <div> prix: {{produit.cost}} </div>
+    <div> poid : {{produit.weight}} </div>
+
+    {{ wtf.quick_form(form) }}
+
+    {% if prix %}
+    <div> voici le prix de livraison  : {{prix}} </div>
+    <a href={{url_for('payment', productid = produit.id, livraison = prix)}}> acheter </a>
+    {% endif %}
+{% endblock %}

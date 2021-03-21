@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <div> {{ produit.name }}</div>
+    <div> prix: {{produit.cost}} </div>
+    <div> poid : {{produit.weight}} </div>
+
+    {{ wtf.quick_form(form) }}
+
+    {% if res %}
+    <div> {{ res }} T'AS PAYER CHER </div>
+    {% endif %}
+{% endblock %}

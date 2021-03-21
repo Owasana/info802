@@ -1,0 +1,19 @@
+serveur soap :
+az webapp up --sku B1 --name info802-ep-soap-server
+
+client wep app :
+az webapp up --sku B1 --name info802-ep-webapp
+
+serveur ql :
+az webapp up --sku B1 --name info802-ep-ql
+
+lien : https://info802-ep-ql.azurewebsites.net/graphql
+
+
+TODO :
+
+-Faire le calculateur de merde sur mon cul.fr
+-MongoPay
+-Corriger les classes moche
+-Trouver un beau css
+-Faire des jolies fonctionnalitées 

@@ -1,0 +1,4 @@
+flask_graphql
+flask
+graphene
+firebase_admin
